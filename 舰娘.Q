@@ -8,7 +8,7 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=c0ac3c71-3249-4d6f-ae63-2f2425773c90
+MacroID=2a66429a-f8d4-4300-b6ee-02f792c0369c
 Description=舰娘
 Enable=1
 AutoRun=0
@@ -21,9 +21,10 @@ QUI=Form
 [Relative]
 SetupOCXFile=
 [Comment]
+记得停止睡眠模式
 
 [UIPackage]
-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
+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
 
 
 [Script]
@@ -45,13 +46,37 @@ Event Form.CB_AutoSupply.Click
 End Event
 Event Form.CB_AutoRepair.Click
     AutoRepair = Form.CB_AutoRepair.Value
+    Form.CB_Repair_Dapo.Value = Form.CB_AutoRepair.Value
+    Form.CB_Repair_ZhongPo.Value = 0
+    Form.CB_Repair_XiaoPo.Value = 0
 End Event
 Event Form.CB_AutoExpedition.Click
     AutoExpedition = Form.CB_AutoExpedition.Value
 End Event
 Event Form.CB_AutoAttack.Click
     AutoAttack = Form.CB_AutoAttack.Value
+    //    Form.CB_Attack_When_DaPo.Value = Form.CB_AutoAttack.Value
+    Form.CB_Attack_When_DaPo.Value = 0
+    Form.CB_Attack_When_ZhongPo.Value = Form.CB_AutoAttack.Value
+    Form.CB_Attack_When_XiaoPo.Value = Form.CB_AutoAttack.Value
 End Event
+
+Event Form.CB_Attack_When_DaPo.Click
+    If (Form.CB_Attack_When_DaPo.Value = 1) Then 
+        MessageBox "警告，这极有可能导致舰船沉没！请确认了解该情况会导致的后果！"
+    End If
+End Event
+
+Event Form.CB_MapLevel.SelectChange
+    AttackMapIndex = Form.CB_MapLevel.ListIndex
+End Event
+Event Form.CB_MissionLevel.SelectChange
+    //	= Form.CB_MissionLevel.ListIndex
+End Event
+Event Form.CB_Atatck_MissionLevel.SelectChange
+
+End Event
+
 
 
 /**********************************************************设置用户自定义变量**********************************************************/
@@ -60,8 +85,8 @@ End Event
 Dim resourceFolder
 resourceFolder = "C:\Users\LiuJing\Pictures\"
 
-ExpeditionNavyMisstion1ID = 1
-ExpeditionNavyMisstion2ID = 2
+ExpeditionNavyMisstion1ID = 2
+ExpeditionNavyMisstion2ID = 4
 
 //出击地图下标
 AttackMapIndex = 1
@@ -132,39 +157,40 @@ ShipWasDestroyed = 0
 
 /****************************初始化****************************/
 Call GetHwndForGame()
-Call TD_CheckExpedition()
-/****************************远征结束*****************************/
-Call GoToMuGang()
-/*****************************补给*****************************/
-TracePrint "AutoSupply:" & AutoSupply
-If (AutoSupply = 1) Then 
-    Call SupplyNavy()
-End If
-/*****************************入渠*****************************/
-TracePrint "AutoRepair:" & AutoRepair
-If (AutoRepair = 1) Then 
-    Call RepairNavy()
-End If
-/*****************************远征*****************************/
-TracePrint "AutoExpedition:" & AutoExpedition
-If (AutoExpedition = 1) Then 
-    Call ExpeditionNavy()
-End If
-/****************************出击****************************/
-TracePrint "AutoAttack:" & AutoAttack
-If (AutoAttack = 1) Then 
-    Call AttackNavy()
-End If
-/*****************************补给*****************************/
-If (AutoSupply = 1) Then 
-    Call SupplyNavy()
-End If
-/*****************************入渠*****************************/
-If (AutoRepair = 1) Then 
-    Call RepairNavy()
-End If
-/*****************************结束*****************************/
-Call TD_CheckExpedition()
+TracePrint "Form.CB_Supply1.Value:" & Form.CB_Supply1.Value
+Call TD_CheckTiDu()
+///****************************远征结束*****************************/
+//Call GoToMuGang()
+///*****************************补给*****************************/
+//TracePrint "AutoSupply:" & AutoSupply
+//If (AutoSupply = 1) Then 
+//    Call SupplyNavy()
+//End If
+///*****************************入渠*****************************/
+//TracePrint "AutoRepair:" & AutoRepair
+//If (AutoRepair = 1) Then 
+//    Call RepairNavy()
+//End If
+///*****************************远征*****************************/
+//TracePrint "AutoExpedition:" & AutoExpedition
+//If (AutoExpedition = 1) Then 
+//    Call ExpeditionNavy()
+//End If
+///****************************出击****************************/
+//TracePrint "AutoAttack:" & AutoAttack
+//If (AutoAttack = 1) Then 
+//    Call AttackNavy()
+//End If
+///*****************************补给*****************************/
+//If (AutoSupply = 1) Then 
+//    Call SupplyNavy()
+//End If
+///*****************************入渠*****************************/
+//If (AutoRepair = 1) Then 
+//    Call RepairNavy()
+//End If
+///*****************************结束*****************************/
+//Call TD_CheckExpedition()
 
 
 
@@ -206,19 +232,20 @@ Function GoToMuGang()
         Call LJ_FindPicUntilFoundThenClick("左侧UI_母港")
         Call LJ_FindPicUntilFound("母港_出击")
     End If
-    //每次回港都直接检查远征
-    Call LJ_FindPic("远征_结束_开始")
-    If (FoundPic = 1) Then 
-        Call LJ_FindPicUntilFoundThenClick("远征_结束_开始")
-        Call LJ_DeleyForNet()
-        Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
-        Call LJ_DeleyForNet()
-        Call LJ_DeleyForNet()
-        Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
-        If (AutoSupply = 1) Then 
-            Call SupplyNavy()
+    Do
+        //每次回港都直接检查远征
+        Call LJ_FindPic("远征_结束_开始")
+        If (FoundPic = 1) Then 
+            TracePrint "发现远征结束舰队"
+            Call LJ_FindPicUntilFoundThenClick("远征_结束_开始")
+            Call LJ_DeleyForNet()
+            Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
+            Call LJ_DeleyForNet()
+            Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
+            Call LJ_DeleyForNet()
+            Call LJ_FindPic("远征_结束_开始")
         End If
-    End If
+    Loop While(FoundPic = 1)
 End Function
 Function GoToScene(SceneName)
     Call LJ_FindPic("左侧UI_" & SceneName)
@@ -232,6 +259,11 @@ End Function
 
 /*远征主逻辑*/
 Function ExpeditionNavy()
+    TracePrint "AutoExpedition:" & AutoExpedition
+    If (AutoExpedition = 0) Then 
+        Exit Function
+    End If
+    
     Call GoToMuGang()
     Call LJ_FindPicUntilFoundThenClick("母港_出击")
     Call LJ_FindPicUntilFoundThenClick("出击_主界面_远征")
@@ -261,40 +293,73 @@ Function ExpeditionSelectMapByMisstionID(ExpeditionMisstionID,NavyNumber)
 
     Call LJ_FindPic("出击_远征_远征中止")
     If (FoundPic = 1) Then //如果远征正在执行，则退出
+        TracePrint "第" & NavyNumber & "舰队已经在执行远征任务"
         Exit Function
     End If
     Call LJ_FindPicUntilFoundThenClick("出击_确定任务")
     Call LJ_PointAddAndClick(ExpeditionNavyPosition, NavyNumber * ExpeditionNavyPositionOffset, 0)
     Call LJ_FindPic("远征_结束_舰队_缺油")
     If (FoundPic = 1) Then 
-        If (AutoSupply = 1) Then 
-            Call SupplyNavy()
-        End If
+        TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMisstionID + 1  & "时缺油"
+        Call SupplyNavy()
+        Exit Function
     End If
     Call LJ_FindPicUntilFoundThenClick("出击_远征_远征开始")
     Call LJ_DeleyForNet()
 End Function
 
-/*补给*/
+/*补给主逻辑*/
 Function SupplyNavy()
+    TracePrint "AutoSupply:" & AutoSupply
+    If (AutoSupply = 0) Then 
+        Exit Function
+    End If
+    Call GoToMuGang()
     Call GoToScene("补给")
     Call LJ_DeleyForNet()
     For index = 0 To SupplyNavyMax
+        If (index = 0) Then 
+            If (Form.CB_Supply1.Value = 0) Then 
+                Goto 下一个补给舰队
+            End If
+        End If
+        If (index = 1) Then 
+            If (Form.CB_Supply2.Value = 0) Then 
+                Goto 下一个补给舰队
+            End If
+        End If
+        If (index = 2) Then 
+            If (Form.CB_Supply3.Value = 0) Then 
+                Goto 下一个补给舰队
+            End If
+        End If
+        If (index = 3) Then 
+            If (Form.CB_Supply4.Value = 0) Then 
+                Goto 下一个补给舰队
+            End If
+        End If
         Call LJ_PointAddAndClick(SupplyNavyPosition,index * SupplyNavyPositionOffset,0)
         Call LJ_FindPic("补给_补给列表_全选框")
         If (FoundPic = 1) Then 
-       		Call LJ_PointGetAndClick(SupplyCheckBoxAllPosition)
+            TracePrint "补给第" & index+1 &"舰队时，使用全选框"
+            Call LJ_PointGetAndClick(SupplyCheckBoxAllPosition)
             Call LJ_FindPic("补给_补给列表_确定补给_disable")
             If (FoundPic = 0) Then 
+                TracePrint "不能补给，第" & index+1 &"舰队"
                 Call LJ_FindPicAndClick("补给_补给列表_确定补给")
                 Call LJ_DeleyForNet()
             End If
         End If
+        Rem 下一个补给舰队
     Next
 End Function
 
-/*入渠*/
+/*入渠主逻辑*/
 Function RepairNavy()
+    TracePrint "AutoRepair:" & AutoRepair
+    If (AutoRepair = 0) Then 
+        Exit Function
+    End If
     Call GoToScene("入渠")
     Call LJ_DeleyForNet()
     
@@ -303,6 +368,7 @@ Function RepairNavy()
     Dim RepairedX, RepairedY
     RepairedX = 0
     RepairedY = 0
+    IsRepayed = 0
     For index = 0 To 3
         Call LJ_FindPicUntilFoundThenClick("入渠_维修列表_空位")
         
@@ -321,35 +387,57 @@ Function RepairNavy()
         //        Loop
         //确定船只
         For index = 0 To 9
-            //            Call LJ_FindPicByRect("入渠_维修列表_第一舰队附舰",RepairedX,RepairedY,800,480)
-            //            If (FoundPic = 1) Then 
-            RepairedX = X
-            RepairedY = Y
-            Call LJ_FindPicByRect("入渠_战斗状态_小破", RepairedX, RepairedY, 800,480)
-            Call LJ_LeftClickOnXY()
-            Call LJ_FindPicByRect("入渠_战斗状态_中破", RepairedX, RepairedY, 800,480)
-            Call LJ_LeftClickOnXY()
-            Call LJ_FindPicByRect("入渠_战斗状态_大破", RepairedX, RepairedY, 800,480)
-            Call LJ_LeftClickOnXY()
-            Call LJ_FindPicByRect("入渠_战斗状态_修复", RepairedX, RepairedY, 800,480)
-            If (FoundPic = 1) Then 
-                RepairedX = RepairedX + 0
-                RepairedY = RepairedY + 25
-                Goto IsRepayed
+            TracePrint "正在判断第" & index+1 &"艘舰"
+            If (Form.CB_Repair_Navy_1.Value = 1) Then 
+                Call LJ_FindPicByRect("入渠_维修列表_第一舰队", X, Y, 800, 480)
             End If
-            //            End If
-            Call LJ_FindPicAndClick("入渠_维修列表_入渠开始")
-            Call LJ_FindPicAndClick("入渠_维修列表_维修开始_确定维修")
-            Call LJ_FindPicAndClick("入渠_维修列表_空位_详情返回")
-            Call LJ_FindPicAndClick("入渠_维修列表_空位_列表返回")
-            Rem IsRepayed
+            If (FoundPic = 1) Then 
+                TracePrint "找到第一舰队 x:" & X & " Y:" &Y
+                IsRepayed = RepairFindShip(X, Y)
+            End If
+            If (IsRepayed = 0) Then 
+                Call LJ_FindPicAndClick("入渠_维修列表_入渠开始")
+                Call LJ_FindPicAndClick("入渠_维修列表_维修开始_确定维修")
+                Call LJ_FindPicAndClick("入渠_维修列表_空位_详情返回")
+                Call LJ_FindPicAndClick("入渠_维修列表_空位_列表返回")
+            End If
         Next
     Next
     Call GoToMuGang()
 End Function
 
+Function RepairFindShip(RepairedX,RepairedY)
+    RepairedYStart = RepairedY - 10
+    RepairedYEnd = RepairedY + 30
+    If (Form.CB_Repair_XiaoPo.Value = 1) Then 
+        TracePrint"小破入渠被选中 检查中"
+        Call LJ_FindPicByRect("入渠_战斗状态_小破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_LeftClickOnXY()
+    End If
+    If (Form.CB_Repair_ZhongPo.Value = 1) Then 
+        TracePrint"中破入渠被选中 检查中"
+        Call LJ_FindPicByRect("入渠_战斗状态_中破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_LeftClickOnXY()
+    End If
+    If (Form.CB_Repair_DaPo.Value = 1) Then 
+        TracePrint"大破入渠被选中 检查中"
+        Call LJ_FindPicByRect("入渠_战斗状态_大破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_LeftClickOnXY()
+    End If
+    Call LJ_FindPicByRect("入渠_战斗状态_修复", RepairedX, RepairedYStart, 800,RepairedYEnd)
+    If (FoundPic = 1) Then 
+        RepairedX = RepairedX + 0
+        RepairedY = RepairedY + 25
+        RepairFindShip = 0
+    End If
+    
+End Function
+
 /**战斗**/
 Function AttackNavy()
+    If (AutoAttack = 0) Then 
+        Exit Function
+    End If
     Call LJ_FindPicByRect("提督_舰队状态_可以出击",107,579,122,594)
     If (FoundPic = 0) Then 
         TracePrint "舰队没有准备完毕"
@@ -376,10 +464,6 @@ Function Fighting()
     FightingRound = 0
     Do
         Call LJ_FindPicAndClick("战斗_战斗中_指南针")
-        Call LJ_FindPic("战斗_地图_2_2_boss")
-        If (FoundPic = 1) Then 
-            Call RefreshGame()
-        End If
         Call LJ_FindPicAndClick("战斗_战斗中_阵形_复縦阵")
         If (AttackNightFight = 1) Then 
             Call LJ_FindPicAndClick("战斗_战斗中_脱离判定_夜战")
@@ -389,19 +473,23 @@ Function Fighting()
         If (FightingRound < AttackFightRound) Then 
             Call LJ_FindPicAndClick("战斗_战斗中_回合结束_进击")
             If (FoundPic = 1) Then 
-                FightingRound = FightingRound + 1	
+                FightingRound = FightingRound + 1
+                TracePrint "当前战斗回合数：" & FightingRound & " 总攻击回合数：" & AttackFightRound
             End If
         Else 
             Call LJ_FindPicAndClick("战斗_战斗中_回合结束_撤退")
         End If
         Call LJ_FindPicAndClick("战斗_结束_评价_战果报告")
         If (FoundPic = 1) Then 
+        	TracePrint "战斗结束，判断舰船是否大破"
             Call LJ_FindPicByRect("战斗_战斗中_战斗状态_大破", 0, 0, 400, 480)
             If (FoundPic = 1) Then 
+            	TracePrint "检测到舰船大破，不在继续进击"
                 ShipWasDestroyed = 1
                 FightingRound = 999//不在继续战斗
             End If
         End If
+        Call LJ_FindPicAndClick("进击_结束_评价_继续")
         Call LJ_FindPicAndClick("出击_结束_评价_返回")
         Call LJ_FindPic("母港_出击")
         Delay 1000
@@ -448,51 +536,137 @@ Function TD_BackToMuGang()
     Call GoToMuGang()
 End Function
 
+Function TD_Supply()
+    Call setHwndByGame()
+    TracePrint "AutoSupply:" & AutoSupply
+    Call SupplyNavy()
+End Function
+
+///*****************************入渠*****************************/
+Function TD_Repair()
+    Call setHwndByGame()
+    TracePrint "AutoRepair:" & AutoRepair
+    If (AutoRepair = 1) Then 
+        Call RepairNavy()
+    End If
+End Function
+
+/*****************************远征*****************************/
+Function TD_Expedition()
+    Call setHwndByGame()
+    Call SupplyNavy()
+    TracePrint "AutoExpedition:" & AutoExpedition
+    Call ExpeditionNavy()
+End Function
+
+/****************************出击****************************/
+Function TD_Attack()
+    Call setHwndByGame()
+    Call GoToMuGang()
+    Call SupplyNavy()
+    Call RepairNavy()
+    Call AttackNavy()
+End Function
+
 
 /**检查远征是否就绪**/
-Function TD_CheckExpedition()
+Function TD_CheckTiDu()
     Do
         Call setHwndByTidu()
-        Call LJ_FindPic("提督_远征_第二舰队_准备就绪1")
+        
+        Rem 远征判断
+        Call LJ_FindPic("提督_综合_远征_第二舰队_准备就绪1")
         If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
+            Call TD_Expedition()
             Exit Function
         End If
-        Call LJ_FindPic("提督_远征_第二舰队_准备就绪2")
+        Call LJ_FindPic("提督_综合_远征_第二舰队_准备就绪2")
         If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
+            Call TD_Expedition()
             Exit Function
         End If
-        Call LJ_FindPic("提督_远征_第三舰队_准备就绪1")
+        Call LJ_FindPic("提督_综合_远征_第三舰队_准备就绪1")
         If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
+            Call TD_Expedition()
             Exit Function
         End If
-        Call LJ_FindPic("提督_远征_第三舰队_准备就绪2")
+        Call LJ_FindPic("提督_综合_远征_第三舰队_准备就绪2")
         If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
+            Call TD_Expedition()
             Exit Function
         End If
-        Call LJ_FindPic("提督_舰队_可以出击")
-        If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
-            Exit Function
+        Rem 远征结束
+        
+        Rem 进击判断
+        If (AutoAttack = 1) Then 
+            Call LJ_FindPic("提督_综合_舰队列表_HP_大破")
+            If (Form.CB_Attack_When_DaPo.Value = 1) Then 
+                TracePrint "按照出击设置，跳过检测是否大破"
+            Else 
+                If (FoundPic = 1) Then 
+                    TracePrint "按照出击设置，检测是否大破：是 取消出击！"
+                    Call TD_Repair()
+                    Goto 进击结束
+                Else 
+                    TracePrint "按照出击设置，检测是否大破：否"
+                End If
+            End If
+            If (Form.CB_Attack_When_ZhongPo.Value = 1) Then 
+                TracePrint "按照出击设置，跳过检测是否中破"
+            Else 
+                Call LJ_FindPic("提督_综合_舰队列表_HP_中破")
+                If (FoundPic = 1) Then 
+                    TracePrint "按照出击设置，检测是否中破：是 取消出击！"
+                    Call TD_Repair() 
+                    Goto 进击结束
+                Else 
+                    TracePrint "按照出击设置，检测是否中破：否"
+                End If
+            End If
+            If (Form.CB_Attack_When_XiaoPo.Value = 1) Then 
+                TracePrint "按照出击设置，跳过检测是否小破"
+            Else
+                Call LJ_FindPic("提督_综合_舰队列表_HP_小破")
+                If (FoundPic = 1) Then 
+                    TracePrint "按照出击设置，检测是否小破：是 取消出击！"
+                    Call TD_Repair()
+                    Goto 进击结束
+                Else 
+                    TracePrint "按照出击设置，检测是否小破：否"
+                End If
+            End If
+            Call LJ_FindPic("提督_综合_舰队列表_入渠中")
+            If (FoundPic = 1) Then 
+                TracePrint "当前舰队有船只正在入渠"
+                Goto 进击结束
+            End If
+            TracePrint "AutoAttack:" & AutoAttack
+            If (AutoAttack = 1) Then 
+                Call LJ_FindPic("提督_综合_舰队列表_可以出击")
+                If (FoundPic = 1) Then 
+                    Call TD_Attack()
+                    Exit Function
+                End If
+                Call LJ_FindPic("提督_综合_舰队列表_疲劳回复完毕")
+                If (FoundPic = 1) Then 
+                    Call TD_Attack()
+                    Exit Function
+                End If
+                Call LJ_FindPic("提督_综合_舰队列表_6只疲劳49")
+                If (FoundPic = 1) Then 
+                    Call TD_Attack()
+                    Exit Function
+                End If
+                Call LJ_FindPic("提督_综合_舰队列表_6只疲劳40以上")
+                If (FoundPic = 1) Then 
+                    Call TD_Attack()
+                    Exit Function
+                End If
+            End If
         End If
-        Call LJ_FindPic("提督_舰队_疲劳回复完毕")
-        If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
-            Exit Function
-        End If
-        Call LJ_FindPic("提督_综合_6只疲劳49")
-        If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
-            Exit Function
-        End If
-        Call LJ_FindPic("提督_综合_6只疲劳40以上")
-        If (FoundPic = 1) Then 
-            Call TD_BackToMuGang()
-            Exit Function
-        End If
+        Rem 进击结束
+        TracePrint "进击结束"
+        
         Delay 5000
     loop While (True)
 End Function
@@ -561,7 +735,7 @@ Function LJ_FindPic(picName)
         If X > - 1  Then 
             FoundPic = 1//找到了	
         Else 
-            TracePrint "LJ_FindPic:" & picName & " FoundPic = false"
+            //            TracePrint "LJ_FindPic:" & picName & " FoundPic = false"
             FoundPic = 0//真没找到
         End If
     End If
