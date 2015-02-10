@@ -8,10 +8,8 @@ Dimenv AutoAttackNavyArray
 //远征舰队
 Dimenv Expedition_Navy2_Enable, Expedition_Navy3_Enable, Expedition_Navy4_Enable
 //远征舰队对应任务ID
-DimEnv ExpeditionMisstionID_Navy2, ExpeditionMisstionID_Navy3, ExpeditionMisstionID_Navy4
+DimEnv ExpeditionMissionID_Navy2, ExpeditionMissionID_Navy3, ExpeditionMissionID_Navy4
 
-//出击地图
-DimEnv AttackMisstionXIndex,AttackMisstionYIndex,AttackMapIndex
 //出击状态
 DimEnv AttackNightFight,AttackFightRound
 
@@ -24,6 +22,8 @@ Event Form.CB_AutoSupply.Click
     AutoSupply = Form.CB_AutoSupply.Value
     Form.CB_Supply_When_Attack_Before.Value = Form.CB_AutoSupply.Value
     Form.CB_Supply_When_Expedition_Before.Value = Form.CB_AutoSupply.Value
+    Form.CB_Supply_Sort.Value = Form.CB_AutoSupply.Value
+    Form.CB_Repair_WeiPo.Value = Form.CB_AutoSupply.Value
 End Event
 //自动入渠开关
 Event Form.CB_AutoRepair.Click
@@ -61,15 +61,6 @@ Event Form.CB_Attack_When_DaPo.Click
     End If
 End Event
 
-//出击地图
-Event Form.CB_Attack_MapLevel.SelectChange
-    AttackMapIndex = Form.CB_Attack_MapLevel.ListIndex
-End Event
-//出击关卡
-Event Form.CB_Attack_MissionLevel.SelectChange
-    AttackMisstionXIndex = Form.CB_Attack_MissionLevel.ListIndex mod 2
-    AttackMisstionYIndex = Int(Form.CB_Attack_MissionLevel.ListIndex / 2)
-End Event
 //是否进击回合次数
 Event Form.CB_AttackNightFight.Click
     AttackNightFight = Form.CB_AttackNightFight.Value
@@ -97,13 +88,13 @@ Event Form.CB_Expedition_Navy4_Enable.Click
 End Event
 //设置远征地图
 Event Form.CB_Expedition_Missionevel_Navy2.SelectChange
-    ExpeditionMisstionID_Navy2 = Form.CB_Expedition_Missionevel_Navy2.ListIndex
+    ExpeditionMissionID_Navy2 = Form.CB_Expedition_Missionevel_Navy2.ListIndex
 End Event
 Event Form.CB_Expedition_Missionevel_Navy3.SelectChange
-    ExpeditionMisstionID_Navy3 = Form.CB_Expedition_Missionevel_Navy3.ListIndex
+    ExpeditionMissionID_Navy3 = Form.CB_Expedition_Missionevel_Navy3.ListIndex
 End Event
 Event Form.CB_Expedition_Missionevel_Navy4.SelectChange
-    ExpeditionMisstionID_Navy4 = Form.CB_Expedition_Missionevel_Navy4.ListIndex
+    ExpeditionMissionID_Navy4 = Form.CB_Expedition_Missionevel_Navy4.ListIndex
 End Event
 
 //出击后强制补给
@@ -135,8 +126,8 @@ Const ExpeditionNavyPositionOffset = 30
 Const ExpeditionMapPosition = "135|450"
 Const ExpeditionMapPositionOffset = 55
 //远征关卡坐标
-Const ExpeditionMisstionPosition = "160|170"
-Const ExpeditionMisstionPositionOffset = 30
+Const ExpeditionMissionPosition = "160|170"
+Const ExpeditionMissionPositionOffset = 30
 
 //补给全选框坐标
 Const SupplyCheckBoxAllPosition = "120|120"
@@ -159,11 +150,22 @@ Const RepairNavyPositionOffset = 30
 Const AttackMapPosition = "160|450"
 Const AttackMapPositionOffset = 75
 //出击任务坐标
-Const AttackMisstionPosition = "280|200"
-Const AttackMisstionPositionOffsetX = 350
-Const AttackMisstionPositionOffsetY = 150
-//出击的特殊地图坐标
-Const AttackMisstionPositionOfSpecial = "710|260"
+Const AttackMissionPosition = "280|200"
+Const AttackMissionPositionOffsetX = 350
+Const AttackMissionPositionOffsetY = 150
+//出击的BOSS地图坐标
+Const AttackMissionPositionOfBossMap = "710|260"
+//出击的BOSS地图任务2坐标
+Const AttackMissionPositionOfBossMission1 = "710|260"
+//出击的BOSS地图任务3坐标
+Const AttackMissionPositionOfBossMission2 = "710|300"
+
+//出击的活动地图坐标
+Const AttackMissionPositionOfSpecialMap = "720|450"
+//出击的活动地图任务1坐标
+Const AttackMissionPositionOfSpecialMission = "720|200"
+Const AttackMissionPositionOfSpecialMissionOffset = 100
+
 
 //换船接触除了旗舰以外的船坐标
 Const ChangeShipWithOutFlagPosition = "420|120"
@@ -179,9 +181,80 @@ Const ChangeShipListNavyPosition = "130|120"
 X = -1 
 Y = - 1 
 //攻击阵形坐标数组
-AttackFormationPositionArray = Array("450|185","480|185","710|185","510|375","640|185")
+AttackFormationPositionArray = Array("450|185","480|185","710|185","510|345","640|345")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************************************************逻辑**********************************************************/
+Do
+/****************************初始化****************************/
+    Call GetHwndForGame()
+    Call RepairNavy()
+    //Call AttackChangeNavy()
+    //    result = CheckOilAndAmmoIsFull()
+    //    If (CheckOilAndAmmoIsFull()) Then 
+    //        TracePrint "result1:" & result
+    //    Else 
+    //        TracePrint "result2:" & result	
+    //    End If
+    //    TracePrint "result3:" & result
+    
+    //    Call RepairNavy()
+    
+    Call TD_CheckTiDu()
+    ///****************************远征结束*****************************/
+    //Call GoToMuGang()
+    ///*****************************补给*****************************/
+    //TracePrint "AutoSupply:" & AutoSupply
+    //If (AutoSupply = 1) Then 
+    //    Call SupplyNavy()
+    //End If
+    ///*****************************入渠*****************************/
+    //TracePrint "AutoRepair:" & AutoRepair
+    //If (AutoRepair = 1) Then 
+    //    Call RepairNavy()
+    //End If
+    ///*****************************远征*****************************/
+    //TracePrint "AutoExpedition:" & AutoExpedition
+    //If (AutoExpedition = 1) Then 
+    //    Call ExpeditionNavy()
+    //End If
+    ///****************************出击****************************/
+    //TracePrint "AutoAttack:" & AutoAttack
+    //If (AutoAttack = 1) Then 
+    //    Call AttackNavy()
+    //End If
+    ///*****************************补给*****************************/
+    //If (AutoSupply = 1) Then 
+    //    Call SupplyNavy()
+    //End If
+    ///*****************************入渠*****************************/
+    //If (AutoRepair = 1) Then 
+    //    Call RepairNavy()
+    //End If
+    ///*****************************结束*****************************/
+    //Call TD_CheckExpedition()
+    Delay 1000
+Loop While(1=1)
 
 
 
@@ -363,9 +436,13 @@ Function TD_CheckTiDu()
             Call LJ_FindPic("提督_综合_舰队列表_入渠中")
             If (FoundPic = 1) Then 
                 TracePrint "当前舰队有船只正在入渠"
-                If (AutoChangeShip = 1) Then 
+                If (AutoChangeShip = 1) Then //如果有开启自动更换的话
+                TracePrint "自动更换已经打开，更换船只"
                     Call ChangeNavy()
                     Exit Function
+                Else 
+                TracePrint "自动更换没有打开，在入渠界面等待入渠结束"
+                    Call GoToScene("入渠")
                 End If
                 Goto 进击结束
             End If
@@ -453,66 +530,6 @@ End Function
 
 
 
-//**********************************************************逻辑**********************************************************/
-Do
-/****************************初始化****************************/
-    Call GetHwndForGame()
-    //Call AttackChangeNavy()
-    Call TD_CheckTiDu()
-    ///****************************远征结束*****************************/
-    //Call GoToMuGang()
-    ///*****************************补给*****************************/
-    //TracePrint "AutoSupply:" & AutoSupply
-    //If (AutoSupply = 1) Then 
-    //    Call SupplyNavy()
-    //End If
-    ///*****************************入渠*****************************/
-    //TracePrint "AutoRepair:" & AutoRepair
-    //If (AutoRepair = 1) Then 
-    //    Call RepairNavy()
-    //End If
-    ///*****************************远征*****************************/
-    //TracePrint "AutoExpedition:" & AutoExpedition
-    //If (AutoExpedition = 1) Then 
-    //    Call ExpeditionNavy()
-    //End If
-    ///****************************出击****************************/
-    //TracePrint "AutoAttack:" & AutoAttack
-    //If (AutoAttack = 1) Then 
-    //    Call AttackNavy()
-    //End If
-    ///*****************************补给*****************************/
-    //If (AutoSupply = 1) Then 
-    //    Call SupplyNavy()
-    //End If
-    ///*****************************入渠*****************************/
-    //If (AutoRepair = 1) Then 
-    //    Call RepairNavy()
-    //End If
-    ///*****************************结束*****************************/
-    //Call TD_CheckExpedition()
-    Delay 1000
-Loop While(1=1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**********************************************************函数**********************************************************/
 
 
@@ -550,6 +567,7 @@ Function GoToMuGang()
     Call LJ_FindPic("母港_出击")
     If (FoundPic = 0)
         Call LJ_FindPicUntilFoundThenClick("左侧UI_母港")
+        Call LJ_DeleyForNet()
         Call LJ_FindPicUntilFound("母港_出击")
     End If
     
@@ -559,7 +577,7 @@ Function GoToMuGang()
         If (FoundPic = 1) Then 
             TracePrint "发现远征结束舰队"
             Call LJ_FindPicUntilFoundThenClick("远征_结束_开始")
-            Call LJ_DeleyForNet()
+            Call LJ_FindPicUntilFoundThenClick("远征_结束_评价")
             Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
             Call LJ_DeleyForNet()
             Call LJ_FindPicUntilFoundThenClick("远征_结束_评价_继续")
@@ -598,18 +616,18 @@ Function ExpeditionNavy()
     Call LJ_DeleyForNet()
     
     If (Expedition_Navy2_Enable = 1) Then 
-        Call ExpeditionSelectMapByMisstionID(ExpeditionMisstionID_Navy2,1)	
+        Call ExpeditionSelectMapByMissionID(ExpeditionMissionID_Navy2,1)	
     End If
     If (Expedition_Navy3_Enable = 1) Then 
-        Call ExpeditionSelectMapByMisstionID(ExpeditionMisstionID_Navy3,2)	
+        Call ExpeditionSelectMapByMissionID(ExpeditionMissionID_Navy3,2)	
     End If
     If (Expedition_Navy4_Enable = 1) Then 
-        Call ExpeditionSelectMapByMisstionID(ExpeditionMisstionID_Navy4,3)	
+        Call ExpeditionSelectMapByMissionID(ExpeditionMissionID_Navy4,3)	
     End If
     
     If (Form.CB_Supply_CheckOil.Value = 1) Then 
-        If (CheckOilAndAmmo() = false) Then 
-            TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMisstionID + 1  & "时缺油或弹药"
+        If (CheckOilAndAmmoIsFull() = false) Then 
+            TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMissionID + 1  & "时缺油或弹药"
             Call SupplyNavy()
             Exit Function
         End If
@@ -618,22 +636,22 @@ Function ExpeditionNavy()
     Call LJ_FindPicUntilFoundThenClick("出击_远征_远征开始")
     Call LJ_DeleyForNet()
     
-    Call GoToMuGang()
+    //    Call GoToMuGang()
 End Function
 
 /*选择远征地图*/
-Function ExpeditionSelectMapByMisstionID(ExpeditionMisstionID,NavyNumber)
+Function ExpeditionSelectMapByMissionID(ExpeditionMissionID,NavyNumber)
     //远征地图下标
-    ExpeditionMapIndex = ExpeditionMisstionID / 8
+    ExpeditionMapIndex = ExpeditionMissionID / 8
     TracePrint "ExpeditionMapIndex:" & ExpeditionMapIndex
     //远征任务下标
-    ExpeditionMisstionIndex = ExpeditionMisstionID mod 8
-    TracePrint "ExpeditionMisstionIndex:" & ExpeditionMisstionIndex
+    ExpeditionMissionIndex = ExpeditionMissionID mod 8
+    TracePrint "ExpeditionMissionIndex:" & ExpeditionMissionIndex
     
     /*选择远征地图*/
     Call LJ_PointAddAndClick(ExpeditionMapPosition,ExpeditionMapIndex * ExpeditionMapPositionOffset,0)
 	/*选择远征关卡*/
-    Call LJ_PointAddAndClick(ExpeditionMisstionPosition,0,ExpeditionMisstionIndex * ExpeditionMisstionPositionOffset)
+    Call LJ_PointAddAndClick(ExpeditionMissionPosition,0,ExpeditionMissionIndex * ExpeditionMissionPositionOffset)
 
     Call LJ_FindPic("出击_远征_远征中止")
     If (FoundPic = 1) Then //如果远征正在执行，则退出
@@ -644,34 +662,35 @@ Function ExpeditionSelectMapByMisstionID(ExpeditionMisstionID,NavyNumber)
     Call LJ_PointAddAndClick(ExpeditionNavyPosition, NavyNumber * ExpeditionNavyPositionOffset, 0)
     
     If (Form.CB_Attack_CheckOil.Value = 1) Then 
-        Call LJ_FindPic("远征_结束_舰队_缺油")
-        If (FoundPic = 1) Then 
-            Call LJ_FindPic("远征_结束_舰队_缺弹药")
-            If (FoundPic = 1) Then 
-                TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMisstionID + 1  & "时缺油"
-                Call SupplyNavy()
-                Exit Function
-            End If
-            
+        If (CheckOilAndAmmoIsFull() = false) Then 
+            TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMissionID + 1  & "时缺油或弹药"
+            Call SupplyNavy()
+            Exit Function
         End If
     End If
     Call LJ_FindPicUntilFoundThenClick("出击_远征_远征开始")
     Call LJ_DeleyForNet()
 End Function
 
-Function CheckOilAndAmmo()
+Function CheckOilAndAmmoIsFull()
     Call LJ_FindPic("远征_结束_舰队_缺油")
     If (FoundPic = 1) Then 
-        CheckOilAndAmmo = False
+        CheckOilAndAmmoIsFull = False
+        Exit Function
+    End If
+    
+    Call LJ_FindPic("远征_结束_舰队_极度缺油")
+    If (FoundPic = 1) Then 
+        CheckOilAndAmmoIsFull = False
         Exit Function
     End If
     
     Call LJ_FindPic("远征_结束_舰队_缺弹药")
     If (FoundPic = 1) Then 
-        CheckOilAndAmmo = False
+        CheckOilAndAmmoIsFull = False
         Exit Function
     End If
-    CheckOilAndAmmo = True
+    CheckOilAndAmmoIsFull = True
 End Function
 
 /*补给主逻辑*/
@@ -684,7 +703,15 @@ Function SupplyNavy()
     Call GoToMuGang()
     Call GoToScene("补给")
     Call LJ_DeleyForNet()
-    For index = 0 To 3
+    ForForm = 0
+    ForTo = 3
+    ForStep = 1
+    If (Form.CB_Supply_Sort.Value = 1) Then 
+        ForForm = 3
+        ForTo = 0
+        ForStep = -1
+    End If
+    For index = ForForm To ForTo Step ForStep
         If (index = 0) Then 
             If (Form.CB_Supply1.Value = 0) Then 
                 Goto 下一个补给舰队
@@ -732,58 +759,81 @@ Function RepairNavy()
     Call GoToScene("入渠")
     Call LJ_DeleyForNet()
     
-    Dim FlagShipIsRepayed
+    Dim FlagShipIsRepayed //旗舰是否修复
     FlagShipIsRepayed = 0
-    Dim RepairedX, RepairedY
-    RepairedX = 0
-    RepairedY = 0
-    IsRepayed = 0
+    Dim RepairedX, RepairedY //扫描这行的起始坐标
+    RepairedX = 360
+    RepairedY = 125
+    Dim HaveSomeoneOnRapired //整个扫描的页里面是否有一艘被修复的
+    HaveSomeoneOnRapired = False
+    Dim TheLineIsRepayed //这行是否被修复
+    TheLineIsRepayed = 0
     For index = 0 To 3
         Call LJ_FindPicUntilFoundThenClick("入渠_维修列表_空位")
         //确定船只
         For index = 0 To 9
             TracePrint "正在判断第" & index+1 &"艘舰"
-            If (Form.CB_Repair_Navy_1.Value = 1) Then 
-                Call LJ_FindPicByRect("入渠_维修列表_第一舰队", X, Y, 800, 480)
-            End If
-            If (FoundPic = 1) Then 
-                TracePrint "找到第一舰队 x:" & X & " Y:" &Y
-                IsRepayed = RepairFindShip(X, Y)
-            End If
-            If (IsRepayed = 0) Then 
+                
+            TheLineIsRepayed = RepairFindShip(RepairedX, RepairedY)
+            
+            If (TheLineIsRepayed = False) Then 
                 Call LJ_FindPicAndClick("入渠_维修列表_入渠开始")
                 Call LJ_FindPicAndClick("入渠_维修列表_维修开始_确定维修")
                 Call LJ_FindPicAndClick("入渠_维修列表_空位_详情返回")
                 Call LJ_FindPicAndClick("入渠_维修列表_空位_列表返回")
             End If
+            RepairedY = RepairedY + 30//查找下一行
         Next
     Next
-    Call GoToMuGang()
+    //    Call GoToMuGang()
 End Function
 
-Function RepairFindShip(RepairedX,RepairedY)
-    RepairedYStart = RepairedY - 10
-    RepairedYEnd = RepairedY + 30
+Function RepairFindShip(mRepairedX, mRepairedY)
+    Dim IsFirstNavy//这艘舰，这是第一舰队的
+
+    RepairedYEnd = mRepairedY + 30
+    
+    If (Form.CB_Repair_Navy_1.Value = 1) Then 
+        Call LJ_FindPicByRect("入渠_维修列表_第一舰队", mRepairedX, mRepairedY, 800, RepairedYEnd)
+        If (FoundPic = 1) Then 
+            TracePrint "找到第一舰队 x:" & X & " Y:" &Y
+            IsFirstNavy = True
+        Else 
+            TracePrint "没有找到第一舰队，如果没有找到当页最后，尝试继续查找"
+            IsFirstNavy = False
+            //RepairFindShip = False//当成已修复处理，跳过该舰入渠
+            Exit Function
+        End If
+    End If
+    
     If (Form.CB_Repair_XiaoPo.Value = 1) Then 
         TracePrint"小破入渠被选中 检查中"
-        Call LJ_FindPicByRect("入渠_战斗状态_小破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_FindPicByRect("入渠_战斗状态_小破", mRepairedX, mRepairedY, 800, RepairedYEnd)
         Call LJ_LeftClickOnXY()
     End If
     If (Form.CB_Repair_ZhongPo.Value = 1) Then 
         TracePrint"中破入渠被选中 检查中"
-        Call LJ_FindPicByRect("入渠_战斗状态_中破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_FindPicByRect("入渠_战斗状态_中破", mRepairedX, mRepairedY, 800, RepairedYEnd)
         Call LJ_LeftClickOnXY()
     End If
     If (Form.CB_Repair_DaPo.Value = 1) Then 
         TracePrint"大破入渠被选中 检查中"
-        Call LJ_FindPicByRect("入渠_战斗状态_大破", RepairedX, RepairedYStart, 800,RepairedYEnd)
+        Call LJ_FindPicByRect("入渠_战斗状态_大破", mRepairedX, mRepairedY, 800, RepairedYEnd)
         Call LJ_LeftClickOnXY()
     End If
-    Call LJ_FindPicByRect("入渠_战斗状态_修复", RepairedX, RepairedYStart, 800,RepairedYEnd)
+    If (Form.CB_Repair_WeiPo.Value = 1 and HaveSomeoneOnRapired = True) Then 
+        TracePrint "微破入渠被选中，并且已经有其他正在入渠的舰只 检查中"
+        Call LJ_FindPicByRect("入渠_战斗状态_满血", mRepairedX, mRepairedY, 800, RepairedYEnd)
+        If (FoundPic = 0) Then 
+        X = mRepairedX + 150
+        Y = mRepairedY + 20
+        Call LJ_LeftClickOnXY()
+        End If
+    End If
+    Call LJ_FindPicByRect("入渠_战斗状态_修复", mRepairedX, mRepairedY, 800, RepairedYEnd)
     If (FoundPic = 1) Then 
-        RepairedX = RepairedX + 0
-        RepairedY = RepairedY + 25
-        RepairFindShip = 0
+        RepairFindShip = True//用作判断本行
+        HaveSomeoneOnRapired = True//用来判断全部
     End If
     
 End Function
@@ -795,7 +845,7 @@ Function AttackNavy()
     If (AutoAttack = 0) Then 
         Exit Function
     End If
-    If (Form.CB_Attack_Limit_Count.Value = 1 and Int(Form.Label_Attack_Index.Caption) > Int(Form.IB_Attack_Limit_Count.Text)) Then 
+    If (Int(Form.CB_Attack_Limit_Count.Value) = 1 and Int(Form.Label_Attack_Index.Caption) > Int(Form.IB_Attack_Limit_Count.Text)) Then 
         TracePrint "当前出击次数超过用户设置的最大次数，停止出击" & Form.Label_Attack_Index.Caption &" "& Int(Form.IB_Attack_Limit_Count.Text)
         Exit Function
     End If
@@ -806,23 +856,41 @@ Function AttackNavy()
     Delay 1000
     Call LJ_FindPicUntilFoundThenClick("出击_主界面_出击")
     Call LJ_DeleyForNet()
+    
+    //出击地图
+    AttackMapIndex = Form.CB_Attack_MapLevel.ListIndex
+    //出击关卡
+    AttackMissionXIndex = Form.CB_Attack_MissionLevel.ListIndex mod 2
+    AttackMissionYIndex = Int(Form.CB_Attack_MissionLevel.ListIndex / 2)
+	
 	/*选择出击地图*/
-    If (Form.CB_Attack_MissionLevel.ListIndex < 4) Then 
+    If (AttackMapIndex < 6) Then //正常地图
         Call LJ_PointAddAndClick(AttackMapPosition, AttackMapIndex * AttackMapPositionOffset, 0)
-    Else 
-        Call LJ_PointGetAndClick(AttackMisstionPositionOfSpecial)
-        Delay 2000
-        Call LJ_PointGetAndClick(AttackMisstionPositionOfSpecial)
+		/*选择出击关卡*/
+        If (Form.CB_Attack_MissionLevel.ListIndex < 4) Then //如果是正常地图，就用正常关卡
+            Call LJ_PointAddAndClick(AttackMissionPosition,AttackMissionXIndex * AttackMissionPositionOffsetX,AttackMissionYIndex * AttackMissionPositionOffsetY)
+        Else// If(AttackMapIndex = 5)//如果是BOSS地图，就是第五地图
+            Call LJ_PointGetAndClick(AttackMissionPositionOfBossMap)
+            Delay 2000
+            Call LJ_PointGetAndClick(AttackMissionPositionOfBossMission1)//只实现了X-5，没有实现X-6
+        End If
+    Else// If(AttackMapIndex = 6)//活动地图
+        Call LJ_PointGetAndClick(AttackMissionPositionOfSpecialMap)
+        Call LJ_PointAddAndClick(AttackMissionPositionOfSpecialMission, 0, Form.CB_Attack_MissionLevel.ListIndex * AttackMissionPositionOfSpecialMissionOffset)
+        Call LJ_PointAddAndClick(AttackMissionPositionOfSpecialMission, 0, Form.CB_Attack_MissionLevel.ListIndex * AttackMissionPositionOfSpecialMissionOffset)
+        Call LJ_PointAddAndClick(AttackMissionPositionOfSpecialMission, 0, Form.CB_Attack_MissionLevel.ListIndex * AttackMissionPositionOfSpecialMissionOffset)
     End If
+	
+
     Delay 1000
-	/*选择出击关卡*/
-    Call LJ_PointAddAndClick(AttackMisstionPosition,AttackMisstionXIndex * AttackMisstionPositionOffsetX,AttackMisstionYIndex * AttackMisstionPositionOffsetY)
+	
+    
     Call LJ_FindPicUntilFoundThenClick("出击_确定任务")
     
     
     If (Form.CB_Supply_CheckOil.Value = 1) Then 
-        If (CheckOilAndAmmo() = false) Then 
-            TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMisstionID + 1  & "时缺油或弹药"
+        If (CheckOilAndAmmoIsFull() = false) Then 
+            TracePrint NavyNumber & "舰队在执行任务" & ExpeditionMissionID + 1  & "时缺油或弹药"
             Call SupplyNavy()
             Exit Function
         End If
@@ -854,6 +922,7 @@ Function Fighting()
             If (FoundPic = 1) Then 
                 FightingRound = FightingRound + 1
                 TracePrint "当前战斗回合数：" & FightingRound & " 总攻击回合数：" & AttackFightRound
+                Delay 1000
             End If
         Else 
             TracePrint "当前战斗回合数：" & FightingRound & " 总攻击回合数：" & AttackFightRound
@@ -864,7 +933,7 @@ Function Fighting()
             TracePrint "战斗结束，判断舰船是否大破"
             Call LJ_FindPicByRect("战斗_战斗中_战斗状态_大破", 0, 0, 400, 480)
             If (FoundPic = 1) Then 
-                TracePrint "检测到舰船大破，不在继续进击"
+                TracePrint "检测到舰船大破，不再继续进击"
                 ShipWasDestroyed = 1
                 FightingRound = 999//不在继续战斗
             End If
@@ -880,6 +949,7 @@ Function Fighting()
     Loop While (FoundPic = 0)
     //Call LJ_FindPicUntilFoundThenClick("出击_结束_评价_继续")
 End Function
+
 //换船
 Function ChangeNavy()
     TracePrint "AutoChangeShip:" & AutoChangeShip
@@ -929,6 +999,16 @@ Function ChangeNavyUpdate()
     TracePrint "ChangeShipIDArrayIndex:" &　ChangeShipIDArrayIndex
 End Function
 
+//工厂开发
+Function FatoryExploitation()
+    TracePrint "AutoChangeShip:" & AutoChangeShip
+    If (AutoChangeShip = 0) Then 
+        Exit Function
+    End If
+    Call GoToScene("工厂")
+    Delay 1000
+    
+End Function
 
 
 
@@ -1014,6 +1094,10 @@ Function Lib_FindPicByRect(picName,StartX,StartY,EndX,EndY)
     Call Plugin.BGCP2_02.FindPicture(Hwnd, StartX ,StartY ,EndX ,EndY ,resourceFolder & picName & ".bmp", 50, PicDefinition, X, Y)
 End Function
 
+Function Lib_FindPicByRectAndDefinition(picName,StartX,StartY,EndX,EndY,mPicDefinition)
+    Call Plugin.BGCP2_02.FindPicture(Hwnd, StartX ,StartY ,EndX ,EndY ,resourceFolder & picName & ".bmp", 50, mPicDefinition, X, Y)
+End Function
+
 /**查找图片**/
 Function LJ_FindPic(picName)
     Call Lib_FindPic(picName)
@@ -1035,7 +1119,21 @@ Function LJ_FindPicByRect(picName,StartX,StartY,EndX,EndY)
     If X > - 1  Then //找到了	
         FoundPic = 1
     Else //没知道，可能是被选中的状态，更换选中状态的图片再找一次
-        Call Lib_FindPic(picName & "_touched")
+        Call Lib_FindPicByRect(picName & "_touched",StartX,StartY,EndX,EndY)
+        If X > - 1  Then 
+            FoundPic = 1//找到了	
+        Else 
+            FoundPic = 0//真没找到
+        End If
+    End If
+End Function
+
+Function LJ_FindPicByRectAndDefinition(picName,StartX,StartY,EndX,EndY,mPicDefinition)
+    Call Lib_FindPicByRectAndDefinition(picName,StartX,StartY,EndX,EndY,mPicDefinition)
+    If X > - 1  Then //找到了	
+        FoundPic = 1
+    Else //没知道，可能是被选中的状态，更换选中状态的图片再找一次
+        Call Lib_FindPicByRectAndDefinition(picName & "_touched",StartX,StartY,EndX,EndY,mPicDefinition)
         If X > - 1  Then 
             FoundPic = 1//找到了	
         Else 
@@ -1137,5 +1235,15 @@ Function LJ_ClickUntilChangeTo(Position,PicName)
 End Function
 
 Function LJ_DeleyForNet()
-    Delay 5000
+    TracePrint "网络等待"
+    Delay 1000
+    nTime = Plugin.Sys.GetTime()
+    Do
+        Call LJ_FindPicByRectAndDefinition("全局_载入中", 770, 450, 800, 480, 0.7)
+        If (FoundPic = 1) Then 
+            TracePrint "仍在获取网络数据"
+            nTime = nTime + 1500
+        End If
+    Loop While (nTime > Plugin.Sys.GetTime())
+    TracePrint "获取网络数据完毕"
 End Function
